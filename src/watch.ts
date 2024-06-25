@@ -6,7 +6,7 @@ import { EventInterleaver } from '#/pubsub/publisher/event-interleaver'
 import type { EventPublisher } from '#/pubsub/publisher/interface'
 import { EventUploader } from '#/pubsub/subscriber/event-uploader'
 import { raise, sleep } from '#/utilities'
-import { efpAccountMetadataAbi, efpListMinterAbi, efpListRecordsAbi, efpListRegistryAbi } from './abi/generated/index'
+import { efpListRecordsAbi } from './abi/generated/index'
 import type { EvmClient } from './clients/viem/index'
 
 export async function watchAllEfpContractEvents({ client }: { client: EvmClient }) {
@@ -15,22 +15,7 @@ export async function watchAllEfpContractEvents({ client }: { client: EvmClient 
 
     // 1. Listen to all EFP contracts for events
     const publishers: EventPublisher[] = [
-      new ContractEventPublisher(
-        client,
-        chainId,
-        'EFPAccountMetadata',
-        efpAccountMetadataAbi,
-        env.EFP_CONTRACTS.ACCOUNT_METADATA
-      ),
-      new ContractEventPublisher(
-        client,
-        chainId,
-        'EFPListRegistry',
-        efpListRegistryAbi,
-        env.EFP_CONTRACTS.LIST_REGISTRY
-      ),
-      new ContractEventPublisher(client, chainId, 'EFPListRecords', efpListRecordsAbi, env.EFP_CONTRACTS.LIST_RECORDS),
-      new ContractEventPublisher(client, chainId, 'EFPListMinter', efpListMinterAbi, env.EFP_CONTRACTS.LIST_MINTER)
+      new ContractEventPublisher(client, chainId, 'EFPListRecords', efpListRecordsAbi, env.EFP_CONTRACTS.LIST_RECORDS)
     ]
 
     // 2. Collect and interleave events in to a single ordered steam

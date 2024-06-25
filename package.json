@@ -54,7 +54,7 @@
     "typescript": "^5.3.3",
     "vitest": "^1.2.1"
   },
-  "repository": "github:ethereumfollowprotocol/indexer",
+  "repository": "github:ethereumfollowprotocol/list-records-indexer",
   "homepage": "github:ethereumfollowprotocol/indexer#README.md",
   "contributors": ["throw; throw@ethfollow.xyz 0xthrpw.eth", "Cory Gabrielsen cory.eth", "Omar Aziz esm.eth"],
   "sideEffects": false

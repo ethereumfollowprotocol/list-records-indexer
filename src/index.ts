@@ -24,77 +24,25 @@ async function waitForPingSuccess(client: EvmClient): Promise<void> {
   await tryAttempt(1)
 }
 
-async function runDbmateCommand(command: string): Promise<void> {
-  return new Promise<void>((resolve: () => void, reject: (reason?: any) => void) => {
-    const cmd = 'bunx'
-    const args = ['dbmate', command]
-    const cmdWithArgs: string = [cmd, ...args].join(' ')
-    const dbmate: ChildProcessWithoutNullStreams = spawn(cmd, args)
-
-    dbmate.stdout.on('data', (data: Buffer) => {
-      console.log(data.toString())
-    })
-
-    dbmate.stderr.on('data', (data: Buffer) => {
-      console.error(data.toString())
-    })
-
-    dbmate.on('close', (code: number) => {
-      if (code === 0) {
-        resolve()
-        console.log(`${cmdWithArgs} process exited with code ${code}`)
-      } else {
-        reject(new Error(`${cmdWithArgs} process exited with code ${code}`))
-      }
-    })
-  })
-}
-
-async function runSetupDbScript(): Promise<void> {
-  return new Promise<void>((resolve: () => void, reject: (reason?: any) => void) => {
-    const cmd = 'bun'
-    const args = ['database:up']
-    const cmdWithArgs: string = [cmd, ...args].join(' ')
-    const dbmate: ChildProcessWithoutNullStreams = spawn(cmd, args)
-
-    dbmate.stdout.on('data', (data: Buffer) => {
-      console.log(data.toString())
-    })
-
-    dbmate.stderr.on('data', (data: Buffer) => {
-      console.error(data.toString())
-    })
-
-    dbmate.on('close', (code: number) => {
-      if (code === 0) {
-        resolve()
-        console.log(`${cmdWithArgs} process exited with code ${code}`)
-      } else {
-        reject(new Error(`${cmdWithArgs} process exited with code ${code}`))
-      }
-    })
-  })
-}
-
 async function main() {
   try {
     logger.log(`Process ID: ${process.pid}`)
-    // wait for db to be up
-    for (;;) {
-      try {
-        logger.log(`dbmate status`, `🗄️`)
-        await runDbmateCommand('status')
-        break
-      } catch {
-        // logger.warn(error)
-        await sleep(1_000)
-      }
-    }
-    // logger.box(`🗄️`, `dbmate up`)
-    await runSetupDbScript()
-    // await runDbmateCommand('up')
-    // logger.box(`🗄️`, `dbmate status`)
-    // await runDbmateCommand('status')
+    // // wait for db to be up
+    // for (;;) {
+    //   try {
+    //     logger.log(`dbmate status`, `🗄️`)
+    //     await runDbmateCommand('status')
+    //     break
+    //   } catch {
+    //     // logger.warn(error)
+    //     await sleep(1_000)
+    //   }
+    // }
+    // // logger.box(`🗄️`, `dbmate up`)
+    // await runSetupDbScript()
+    // // await runDbmateCommand('up')
+    // // logger.box(`🗄️`, `dbmate status`)
+    // // await runDbmateCommand('status')
 
     const chainId = env.CHAIN_ID
     const client = evmClients[chainId]()

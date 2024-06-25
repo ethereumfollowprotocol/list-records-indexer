@@ -13,10 +13,6 @@ interface EnvironmentVariables {
   readonly DATABASE_URL: string
   readonly ENABLE_DATABASE_LOGGING: string
   readonly ANVIL_ACCOUNT_PRIVATE_KEY: `0x${string}`
-  readonly EFP_CONTRACT_ACCOUNT_METADATA: `0x${string}`
-  readonly EFP_CONTRACT_LIST_METADATA: `0x${string}`
-  readonly EFP_CONTRACT_LINT_MINTER: `0x${string}`
-  readonly EFP_CONTRACT_LIST_REGISTRY: `0x${string}`
   readonly EFP_CONTRACT_LIST_RECORDS: `0x${string}`
 }
 
