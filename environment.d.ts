@@ -14,6 +14,9 @@ interface EnvironmentVariables {
   readonly ENABLE_DATABASE_LOGGING: string
   readonly ANVIL_ACCOUNT_PRIVATE_KEY: `0x${string}`
   readonly EFP_CONTRACT_LIST_RECORDS: `0x${string}`
+  readonly QUIKNODE_ID: string
+  readonly QUIKNODE_PREFIX: string
+  readonly SNITCH_ID: string
 }
 
 declare module 'bun' {
