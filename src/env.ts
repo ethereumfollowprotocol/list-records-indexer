@@ -7,6 +7,8 @@ export const env = Object.freeze({
   MAINNET_ALCHEMY_ID: getEnvVariable('MAINNET_ALCHEMY_ID'),
   ANKR_ID: getEnvVariable('ANKR_ID'),
   INFURA_ID: getEnvVariable('INFURA_ID'),
+  QUIKNODE_ID: getEnvVariable('QUIKNODE_ID'),
+  QUIKNODE_PREFIX: getEnvVariable('QUIKNODE_PREFIX'),
   SEPOLIA_ALCHEMY_ID: getEnvVariable('SEPOLIA_ALCHEMY_ID'),
   BASE_SEPOLIA_ALCHEMY_ID: getEnvVariable('BASE_SEPOLIA_ALCHEMY_ID'),
   OP_SEPOLIA_ALCHEMY_ID: getEnvVariable('OP_SEPOLIA_ALCHEMY_ID'),
@@ -15,6 +17,7 @@ export const env = Object.freeze({
   DATABASE_URL: getEnvVariable('DATABASE_URL'),
   ANVIL_ACCOUNT_PRIVATE_KEY: getEnvVariable('ANVIL_ACCOUNT_PRIVATE_KEY'),
   CHAIN_ID: getEnvVariable('CHAIN_ID'),
+  SNITCH_ID: getEnvVariable('SNITCH_ID'),
   EFP_CONTRACTS: {
     LIST_RECORDS: getEnvVariable('EFP_CONTRACT_LIST_RECORDS')
   }
