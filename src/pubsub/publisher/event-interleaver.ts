@@ -1,4 +1,5 @@
 import BinaryHeap from 'heap-js'
+import { env } from '#/env'
 import { logger } from '#/logger'
 import { type Event, compareEvents } from '#/pubsub/event'
 import type { EventSubscriber } from '#/pubsub/subscriber/interface'
@@ -148,7 +149,7 @@ export class EventInterleaver implements EventPublisher, EventSubscriber {
 
   async #processQueue(): Promise<void> {
     const now = new Date()
-    const batchSize = 100
+    const batchSize = env.BATCH_SIZE
     // Muted by user
     // biome-ignore lint/nursery/noEvolvingTypes: <explanation>
     let batch = []
