@@ -5,6 +5,7 @@ interface EnvironmentVariables {
   readonly EFP_CONTRACT_LIST_RECORDS: `0x${string}`
   readonly SNITCH_ID: string
   readonly BATCH_SIZE: number
+  readonly RECOVER_HISTORY: string
   readonly START_BLOCK: number
   readonly PRIMARY_RPC_BASE: string
   readonly SECONDARY_RPC_BASE: string

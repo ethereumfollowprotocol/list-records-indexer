@@ -6,6 +6,7 @@ export const env = Object.freeze({
   CHAIN_ID: getEnvVariable('CHAIN_ID'),
   SNITCH_ID: getEnvVariable('SNITCH_ID'),
   BATCH_SIZE: getEnvVariable('BATCH_SIZE'),
+  RECOVER_HISTORY: getEnvVariable('RECOVER_HISTORY'),
   START_BLOCK: getEnvVariable('START_BLOCK'),
   EFP_CONTRACTS: {
     LIST_RECORDS: getEnvVariable('EFP_CONTRACT_LIST_RECORDS')
