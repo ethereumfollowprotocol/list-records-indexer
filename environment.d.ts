@@ -3,7 +3,7 @@ interface EnvironmentVariables {
   readonly CHAIN_ID: '1' | '10' | '8453'
   readonly DATABASE_URL: string
   readonly EFP_CONTRACT_LIST_RECORDS: `0x${string}`
-  readonly SNITCH_ID: string
+  readonly SNITCH_ID: string | undefined
   readonly BATCH_SIZE: number
   readonly RECOVER_HISTORY: string
   readonly START_BLOCK: number
